@@ -22,9 +22,6 @@ class ViewController: UIViewController {
         case photoLibraryPicker = "Photo Library Picker"
         case colorPicker = "Color Picker"
         case textViewer = "Text Viewer"
-        case contactsPicker = "Contacts Picker"
-        case locationPicker = "Location Picker"
-        case telegramPicker = "Telegram Picker"
         
         var description: String {
             switch self {
@@ -42,19 +39,16 @@ class ViewController: UIViewController {
             case .photoLibraryPicker: return "Select photos from Photo Library"
             case .colorPicker: return "Storyboard & Autolayout"
             case .textViewer: return "TextView, not editable"
-            case .contactsPicker: return "With SearchController"
-            case .locationPicker: return "MapView With SearchController"
-            case .telegramPicker: return "Similar to the Telegram"
             }
         }
         
         var color: UIColor? {
             switch self {
-            case .simple, .simpleWithImages, .telegramPicker, .singlePhoto:
+            case .simple, .simpleWithImages, .singlePhoto:
                 return UIColor(hex: 0x007AFF)
             case .oneTextField, .twoTextFields:
                 return UIColor(hex: 0x5AC8FA)
-            case .dataPicker, .pickerView, .contactsPicker, .locationPicker:
+            case .dataPicker, .pickerView:
                 return UIColor(hex: 0x4CD964)
             case .countryPicker, .phoneCodePicker, .currencyPicker, .textViewer:
                 return UIColor(hex: 0xFF5722)
@@ -67,7 +61,6 @@ class ViewController: UIViewController {
     }
     
     fileprivate lazy var alerts: [AlertType] = [
-        .telegramPicker,
         .singlePhoto,
         .simple,
         .simpleWithImages,
@@ -82,8 +75,6 @@ class ViewController: UIViewController {
         .photoLibraryPicker,
         .colorPicker,
         .textViewer,
-        .contactsPicker,
-        .locationPicker
     ]
     
     // MARK: UI Metrics
@@ -289,24 +280,6 @@ class ViewController: UIViewController {
             alert.addAction(title: "Done".localized, style: .cancel)
             alert.show()
             
-        case .pickerView:
-            let alert = UIAlertController(title: "Picker View", message: "Preferred Content Height", preferredStyle: self.alertStyle)
-            
-            let frameSizes: [CGFloat] = (150...300).map { CGFloat($0) }
-            let pickerViewValues: [[String]] = [frameSizes.map { Int($0).description }]
-            let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: frameSizes.index(of: 216) ?? 0)
-            
-            alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue, withSerchBar: true) { vc, picker, index, values  in
-                
-                DispatchQueue.main.async {
-                    UIView.animate(withDuration: 1.0) {
-                        vc.preferredContentSize.height = frameSizes[index.row]
-                    }
-                }
-            }
-            alert.addAction(title: "Done".localized, style: .cancel)
-            alert.show()
-            
         case .countryPicker:
             let alert = UIAlertController(style: self.alertStyle)
             alert.addLocalePicker(type: .country) { info in Log(info) }
@@ -376,52 +349,8 @@ class ViewController: UIViewController {
             alert.addAction(title: "OK".localized, style: .cancel)
             alert.show()
             
-        case .contactsPicker:
-            let alert = UIAlertController(style: self.alertStyle)
-            alert.addContactsPicker { contact in Log(contact) }
-            alert.addAction(title: "Cancel".localized, style: .cancel)
-            alert.show()
-            
-        case .locationPicker:
-            let alert = UIAlertController(style: self.alertStyle)
-            alert.addLocationPicker { location in Log(location) }
-            alert.addAction(title: "Cancel".localized, style: .cancel)
-            alert.show()
-            
-        case .telegramPicker, .singlePhoto:
-            let alert = UIAlertController(style: .actionSheet)
-            alert.view.tintColor = UIColor.purple
-            
-            let picker = TelegramPickerViewController(selection: { [weak alert] result in
-                switch result {
-                case .media(let assets):
-                    Log(assets)
-                case .photoLibrary:
-                    Log("photo library")
-                case .contact(let contact):
-                    Log(contact)
-                case .location(let location):
-                    Log(location)
-                case .camera(let stream):
-                    Log(stream)
-                    alert?.dismiss(animated: true, completion: nil)
-                case .photosAsDocuments(let assets):
-                    Log("Photo as documents: " + assets.description)
-                case .document:
-                    Log("Document")
-                }
-            }, localizer: ExampleTelegramPickerLocalizer())
-            
-            if type == .singlePhoto {
-                picker.mediaTypes = [.photos, .camera]
-                picker.disabledButtonTypes = [.contact, .documentAsFile, .location, .file, .photoAsFile, .photoOrVideo]
-                picker.selectionMode = .single
-            }
-            
-            alert.setTelegramPicker(picker)
-            
-            alert.addAction(title: "Cancel".localized, style: .cancel)
-            alert.show()
+        default:
+            break
         }
     }
 }
