@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'MMBAlertsPickers'
-  s.version      = '1.1.4'
+  s.version      = '1.2.0'
   s.summary      = 'Advanced usage of UIAlertController with TextField, DatePicker, PickerView, TableView and CollectionView adapted for using in DialogSDK'
   s.license      = 'MIT'
   s.author       = { 'MahmoudMMB' => 'mmbelbeisi@gmail.com' }
