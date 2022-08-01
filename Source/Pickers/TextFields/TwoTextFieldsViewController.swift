@@ -11,7 +11,7 @@ extension UIAlertController {
     ///   - textFieldOne: first textField
     ///   - textFieldTwo: second textField
     
-    public func addTwoTextFields(height: CGFloat = 58, hInset: CGFloat = 0, vInset: CGFloat = 0, textFieldOne: TextField.Config?, textFieldTwo: TextField.Config?) {
+    public func addTwoTextFields(height: CGFloat = 58, hInset: CGFloat = 0, vInset: CGFloat = 0, textFieldOne: MMBTextField.Config?, textFieldTwo: MMBTextField.Config?) {
         let textField = TwoTextFieldsViewController(height: height, hInset: hInset, vInset: vInset, textFieldOne: textFieldOne, textFieldTwo: textFieldTwo)
         set(vc: textField, height: height * 2 + 2 * vInset)
     }
@@ -20,14 +20,14 @@ extension UIAlertController {
 final public class TwoTextFieldsViewController: UIViewController {
     
     fileprivate lazy var textFieldView: UIView = UIView()
-    fileprivate lazy var textFieldOne: TextField = TextField()
-    fileprivate lazy var textFieldTwo: TextField = TextField()
+    fileprivate lazy var textFieldOne: MMBTextField = MMBTextField()
+    fileprivate lazy var textFieldTwo: MMBTextField = MMBTextField()
     
     fileprivate var height: CGFloat
     fileprivate var hInset: CGFloat
     fileprivate var vInset: CGFloat
     
-    public init(height: CGFloat, hInset: CGFloat, vInset: CGFloat, textFieldOne configurationOneFor: TextField.Config?, textFieldTwo configurationTwoFor: TextField.Config?) {
+    public init(height: CGFloat, hInset: CGFloat, vInset: CGFloat, textFieldOne configurationOneFor: MMBTextField.Config?, textFieldTwo configurationTwoFor: MMBTextField.Config?) {
         self.height = height
         self.hInset = hInset
         self.vInset = vInset
