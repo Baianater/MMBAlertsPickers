@@ -197,7 +197,7 @@ class ViewController: UIViewController {
         case .oneTextField:
             let alert = UIAlertController(title: "TextField", message: "Secure Entry", preferredStyle: self.alertStyle)
             
-            let textField: TextField.Config = { textField in
+            let textField: MMBTextField.Config = { textField in
                 textField.left(image: #imageLiteral(resourceName: "pen"), color: .black)
                 textField.leftViewPadding = 12
                 textField.becomeFirstResponder()
@@ -224,7 +224,7 @@ class ViewController: UIViewController {
         case .twoTextFields:
             let alert = UIAlertController(style: self.alertStyle)
             
-            let textFieldOne: TextField.Config = { textField in
+            let textFieldOne: MMBTextField.Config = { textField in
                 textField.left(image: #imageLiteral(resourceName: "user"), color: UIColor(hex: 0x007AFF))
                 textField.leftViewPadding = 16
                 textField.leftTextPadding = 12
@@ -242,7 +242,7 @@ class ViewController: UIViewController {
                 }
             }
             
-            let textFieldTwo: TextField.Config = { textField in
+            let textFieldTwo: MMBTextField.Config = { textField in
                 textField.left(image: #imageLiteral(resourceName: "padlock"), color: UIColor(hex: 0x007AFF))
                 textField.leftViewPadding = 16
                 textField.leftTextPadding = 12

@@ -1,8 +1,8 @@
 import UIKit
 
-open class TextField: UITextField {
+open class MMBTextField: UITextField {
     
-    public typealias Config = (TextField) -> Swift.Void
+    public typealias Config = (MMBTextField) -> Swift.Void
     
     public func configure(configurate: Config?) {
         configurate?(self)
@@ -13,7 +13,6 @@ open class TextField: UITextField {
     fileprivate var actionEditingChanged: Action?
     
     // Provides left padding for images
-    
     override open func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         var textRect = super.leftViewRect(forBounds: bounds)
         textRect.origin.x += leftViewPadding ?? 0
@@ -35,7 +34,7 @@ open class TextField: UITextField {
     
     public func action(closure: @escaping Action) {
         if actionEditingChanged == nil {
-            addTarget(self, action: #selector(TextField.textFieldDidChange), for: .editingChanged)
+            addTarget(self, action: #selector(MMBTextField.textFieldDidChange), for: .editingChanged)
         }
         actionEditingChanged = closure
     }

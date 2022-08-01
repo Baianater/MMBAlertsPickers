@@ -94,8 +94,8 @@
 		8976FDF3240A90FA002D5017 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDE9240A90FA002D5017 /* SegmentedControl.swift */; };
 		8976FDF4240A90FA002D5017 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDEA240A90FA002D5017 /* GradientSlider.swift */; };
 		8976FDF5240A90FA002D5017 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDEA240A90FA002D5017 /* GradientSlider.swift */; };
-		8976FDF6240A90FA002D5017 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDEB240A90FA002D5017 /* TextField.swift */; };
-		8976FDF7240A90FA002D5017 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDEB240A90FA002D5017 /* TextField.swift */; };
+		8976FDF6240A90FA002D5017 /* MMBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDEB240A90FA002D5017 /* MMBTextField.swift */; };
+		8976FDF7240A90FA002D5017 /* MMBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDEB240A90FA002D5017 /* MMBTextField.swift */; };
 		8976FDF8240A90FA002D5017 /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDEC240A90FA002D5017 /* PickerStyle.swift */; };
 		8976FDF9240A90FA002D5017 /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDEC240A90FA002D5017 /* PickerStyle.swift */; };
 		8976FDFA240A90FA002D5017 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8976FDED240A90FA002D5017 /* Button.swift */; };
@@ -200,7 +200,7 @@
 		8976FDE8240A90FA002D5017 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MMBAlertsPickersLocalizable.strings; sourceTree = "<group>"; };
 		8976FDE9240A90FA002D5017 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		8976FDEA240A90FA002D5017 /* GradientSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
-		8976FDEB240A90FA002D5017 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		8976FDEB240A90FA002D5017 /* MMBTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMBTextField.swift; sourceTree = "<group>"; };
 		8976FDEC240A90FA002D5017 /* PickerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerStyle.swift; sourceTree = "<group>"; };
 		8976FDED240A90FA002D5017 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D7636E47216FB7FB0063BCDB /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -330,7 +330,7 @@
 				8976FDE7240A90FA002D5017 /* Label.swift */,
 				8976FDE9240A90FA002D5017 /* SegmentedControl.swift */,
 				8976FDEA240A90FA002D5017 /* GradientSlider.swift */,
-				8976FDEB240A90FA002D5017 /* TextField.swift */,
+				8976FDEB240A90FA002D5017 /* MMBTextField.swift */,
 				8976FDEC240A90FA002D5017 /* PickerStyle.swift */,
 				8976FDED240A90FA002D5017 /* Button.swift */,
 			);
@@ -852,7 +852,7 @@
 				65CFE7BD21EBDE5600A51361 /* CurrencyCell.swift in Sources */,
 				65CFE7BE21EBDE5600A51361 /* CountryCell.swift in Sources */,
 				65CFE7BF21EBDE5600A51361 /* PhoneCodeCell.swift in Sources */,
-				8976FDF7240A90FA002D5017 /* TextField.swift in Sources */,
+				8976FDF7240A90FA002D5017 /* MMBTextField.swift in Sources */,
 				65CFE7C521EBDE5600A51361 /* Assets.swift in Sources */,
 				65CFE7C621EBDE5600A51361 /* PhotoLibraryPickerViewController.swift in Sources */,
 				65CFE7C721EBDE5600A51361 /* PickerViewViewController.swift in Sources */,
@@ -880,7 +880,7 @@
 				F27C7E4421771E5300266414 /* UIButton.swift in Sources */,
 				F27C7E5421771E5300266414 /* Slider.swift in Sources */,
 				F27C7E5121771E5300266414 /* ItemBaseController.swift in Sources */,
-				8976FDF6240A90FA002D5017 /* TextField.swift in Sources */,
+				8976FDF6240A90FA002D5017 /* MMBTextField.swift in Sources */,
 				F27C7E4C21771E5300266414 /* UISlider.swift in Sources */,
 				F27C7E3921771E5300266414 /* VideoView.swift in Sources */,
 				F27C7E4F21771E5300266414 /* GalleryItem.swift in Sources */,
